@@ -8,10 +8,9 @@ public class Carta {
 
 	public Carta() {
 
-		Valor valor = Valor.valorAleatorio(); // Llamamos al metodo del Enum que genera un valor aleatorio
-		Palo palo = Palo.paloAleatorio();
-		this.valor = valor;
-		this.palo = palo;
+		// Llamamos al metodo del Enum que genera un valor aleatorio
+		this.valor =  Valor.valorAleatorio() ;
+		this.palo = Palo.paloAleatorio();
 		sumaTotal = valorCarta(); // En este metodo hay un switch que nos generar� el valor de la carta en si
 
 	}
