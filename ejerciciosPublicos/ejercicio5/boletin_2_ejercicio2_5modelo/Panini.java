@@ -48,7 +48,7 @@ public class Panini extends Producto {
 	String contarPaninisPedidos(){
 		return "El numero de paninis pedidos es: "+ numeroTotalPaninisPedidos;
 	}
-
+	
 	@Override
 	public void calcularPrecio() {
 	
@@ -75,6 +75,23 @@ public class Panini extends Producto {
 
 		
 		// creo que deberia ser con return pero para hacer pruebas no va mal
+		
+	}
+
+	@Override
+	public String mostrarInfo() {
+		
+		String informacion= "1.Tamanio Panini: \n"+getTamanioPanini()+"\n"+"2.Tipo Panini:\n"+getTipoPanini()+"\n"+
+				"3.pedida:\n"+mostrarFechaHoraPedida+ "\n4.servida\n"+mostrarFechaHoraServida;
+				return informacion;
+		
+	}
+
+	@Override
+	public void servir() {
+		servida=true;
+		numeroTotalPaninisServidos++;
+
 		
 	}
 }

@@ -18,109 +18,54 @@ public class menuPredeterminado {
 	public static Scanner inputString = new Scanner(System.in);
 
 	public static void main(String[] args) {
-		
+
 		menuMarco();
 
-		
-
-		/* Producto arrayProductos[] = { paniniPrueba, pizzaPrueba };
-		servirProducto(arrayProductos); */
-
-		/*
-		 * for (Producto producto : arrayProductos) {
-		 * System.out.println(producto.isServida());		
-		 */
-		// Bucle para recorrer el array de productos.
 	}
-
-	static String servirProducto(Producto producto) {
-		
-		producto.setHora_Fecha_Servida(LocalDateTime.now());
-		Duration diferencia;
-		diferencia= Duration.between(producto.getHora_Fecha_Pedida(),producto.getHora_Fecha_Servida());
-		return "Se ha servido en: "+ diferencia.toMinutes()+" minutos";
-		
-	}
-
-	/*private static void servirProducto(Producto[] arrayProductos) { 
-	
-
-	}*/
-
-	/**
-	 * @author Manuel Pantallazo incial del menu. Aqui almacenaremos la informacion
-	 *         que queramos mostrar por pantalla y la seleccionaremos con un numero.
-	 * 
-	 * 
-	 */
-	 static void almacenPantallazos(int numeroPantallazo) {
-		String bloqueTexto;
-		switch (numeroPantallazo) {
-		case 1:
-			bloqueTexto = """
-					QUE DESEA HACER?
-					 1. - Pedir una Pizza
-					 2. - Pedir un Panini
-					 3. - Salir del programa
-					 4. REcoger pedido
-					 """;
-			System.out.println(bloqueTexto);
-
-			break;
-		default:
-
-		}
-	}
-
-	/**
-	 * @author Manuel Metodo que almacena un SWITCH. Hay que modificarlo segun las
-	 *         preferencias del usuario. Por defecto trae 3 opciones.
-	 * 
-	 * @param opcionUsuario
-	 * @return
-	 * 
-	 */
-	public static int pantallaSwitchUsuario(int opcionUsuario) {
-		Producto objeto = null;
-		try {
-			switch (opcionUsuario) { // En cada case esta indicado el contenido del metodo pantallazoMenu
-			case 1:
-					objeto = crearPizza();
-				break;
-			case 4:
-				System.out.println(servirProducto(objeto));
-				break;
-			case 3:
-
-				break;
-			default:
-				System.out.println("Introduzca una opcion valida");
-			}
-		} catch (Exception e) {
-			System.out.println(" La estas liando");
-		}
-		return opcionUsuario;
-
-	}
-
-	
-
-
 
 	public static void menuMarco() {
-		int opcionUsuario;
+		/*
+		 * En el programa principal se deben pedir 3 pizzas de distintos tipos
+		 * (construir 3 pizzas), luego crear dos paninis distintos entre sí, después se
+		 * pasa a servir 2 de esas pizzas y 1 panini. Almacenar los paninis y las pizzas
+		 * en una array
+		 */
 
-		do {
-			almacenPantallazos(1);
-			opcionUsuario = inputInt.nextInt();
-			opcionUsuario = pantallaSwitchUsuario(opcionUsuario);
-		} while (opcionUsuario != 3);
+		Pizza pizzaUsuario1 = new Pizza(TamanioPizza.FAMILIAR, TipoPizza.CUATRO_QUESOS);
+		Pizza pizzaUsuario2 = new Pizza(TamanioPizza.FAMILIAR, TipoPizza.FUNGHI);
+		Pizza pizzaUsuario3 = new Pizza(TamanioPizza.MEDIANA, TipoPizza.MARGARITA);
+
+		Panini paniniUsuario1 = new Panini(TamanioPanini.ALMERIA, TipoPanini.DOBLE);
+		Panini paniniUsuario2 = new Panini(TamanioPanini.GRANADA, TipoPanini.SIMPLE);
+
+		servir(pizzaUsuario1);
+		servir(pizzaUsuario2);
+	
+		Producto[] arrayProductos = {pizzaUsuario1, pizzaUsuario2, pizzaUsuario3, paniniUsuario1, paniniUsuario2 };
+
+		for (Producto producto : arrayProductos) {
+			System.out.println(producto.mostrarInfo());
+					System.out.println();
+		}
+		
+	mostrarInfoPizzeria();
 
 	}
 
-	public static Producto  crearPizza() {
-		Pizza pizzaPrueba = new Pizza(TamanioPizza.FAMILIAR, TipoPizza.CUATRO_QUESOS);
-		return pizzaPrueba;
+	private static void servir(Producto productoUsuario) {
+		productoUsuario.servir();
+		productoUsuario.calcularTiempoServicio();
 
 	}
+	private static void mostrarInfoPizzeria() {
+		System.out.println("Pizzas:");
+		System.out.println(Pizza.numeroTotalPizzasPedidas+" Pedidas");
+		System.out.println(Pizza.numeroTotalPizzasServidas+" servidas\n");
+		System.out.println("Paninis:");
+		System.out.println(Panini.numeroTotalPaninisPedidos+" Pedidas");
+		System.out.println(Panini.numeroTotalPaninisServidos+" Servidas");
+
+
+	}
+
 }

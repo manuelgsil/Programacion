@@ -22,6 +22,7 @@ public class Pizza extends Producto {
 		this.tipo = tipo;
 		calcularPrecio(); 
 		hora_Fecha_Pedida= LocalDateTime.now();
+		hora_Fecha_Servida = hora_Fecha_Pedida.plusMinutes(10);
 		Pizza.numeroTotalPizzasPedidas++;
 
 	}
@@ -45,18 +46,24 @@ public class Pizza extends Producto {
 		return TamanioPizza;
 	}
 
-	public void setTamanioPizza(TamanioPizza tamanioPizza) {
-		TamanioPizza = tamanioPizza;
-	}
-	String  pizzasPedidas() {
-		return "numero total de pizzas hasta el momento: "+ numeroTotalPizzasPedidas;
+
+	@Override
+	public String mostrarInfo() {
+		
+		String informacion= "1.Tamanio pizza: \n"+getTamanioPizza()+"\n"+"2.Tipo Pizza:\n"+getTipo()+"\n"+
+		"3.pedida:\n"+mostrarFechaHoraPedida+ "\n4.servida\n"+mostrarFechaHoraServida;
+		return informacion;
 	}
 
 	@Override
-	public String toString() {
-		return "Pizza [tipo=" + tipo + ", TamanioPizza=" + TamanioPizza + ", precio=" + precio + ", pedida=" + pedida
-				+ ", servida=" + servida + "]";
+	public void servir() {
+		servida=true;
+		numeroTotalPizzasServidas++;
+		
 	}
+
+	
+	
 	
 	
 }
