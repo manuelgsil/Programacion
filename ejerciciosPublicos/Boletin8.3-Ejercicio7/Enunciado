@@ -1,0 +1,59 @@
+Enunciado
+
+Ejercicio 7 (ejercicio de preparación para exámen): Se desea gestionar un almacén
+en el que se guardan un conjunto de bebidas. 
+
+Estos productos son bebidas como agua
+mineral y bebidas azucaradas (Coca-cola, Fanta, etc).
+
+De los productos nos interesa saber su identificador (cada uno tiene uno distinto), cantidad de litros, precio base, precio
+final (precio final+IVA) y marca.
+
+Si es agua mineral nos interesa saber también el origen (nombre del manantial).
+
+Si es una bebida azucarada queremos saber el porcentaje que tiene de azúcar y si tiene
+o no alguna promoción (si la tiene tendrá un descuento del 10% en el precio final).
+
+En el almacén iremos almacenando estas bebidas por estanterías. Inicialmente, el
+almacén tendrá 5 estanterías (identificada con un número empezando por el 1), cada una
+de ellas con 6 huecos.
+
+Las operaciones del almacén son las siguientes:
+
+● Calcular el precio de todas las bebidas: calcula el precio final de todos los
+productos del almacén.
+
+● Calcular el precio total de una marca de bebida: dada una marca, calcular el
+precio total de esas bebidas.
+
+● Calcular el precio total de una estantería: dada una estantería calcular el precio
+total de sus bebidas.
+
+● Agregar producto: agrega un producto en la primera posición libre del almacén, si
+el identificador está repetido en alguno de las bebidas, no se agregará esa bebida.
+
+● Eliminar un producto: dado un ID, eliminar el producto del almacén.
+
+● Mostrar inventario: mostramos para cada bebida del almacén toda su información.
+
+● Ampliar almacén:Esta funcionalidad no se va a implementar, en este caso, se
+lanzará la excepción UnderConstruction, la cual se capturará en el main.
+
+
+Crea un programa que permita gestionar un almacén, realizando las operaciones
+anteriores, desde la consola de comandos.
+
+Se deberán capturar todas las excepciones que se produzcan, incluidas las que se
+producen cuando el usuario introduce datos invalidados, como numeros o letras, cuando
+se espera lo contrario.
+
+El menu principal del programa será.
+
+¿Qué operación quiere realizar?
+1. Calcular el precio de todas las bebidas
+2. Calcular el precio total de una marca de bebida
+3. Calcular el precio total de una estantería
+4. Agregar producto
+5. Eliminar un producto
+6. Mostrar inventario
+7. Ampliar almacén
