@@ -25,7 +25,7 @@ public class Salto {
 	}
 
 	public static double calcularMedia(Salto[] arraySaltos) {
-		// TODO algo hay mal por aqui o en las funciones de peor/mayorPuntuacion
+
 		double media = 0;
 		int peorPuntuacion = peorPuntuacionValida(arraySaltos);
 		int mayorPuntuacion = mayorPuntuacionValida(arraySaltos);
@@ -33,6 +33,7 @@ public class Salto {
 
 		for (int i = 0; i < arraySaltos.length; i++) {
 			if (arraySaltos[i].isValido() && arraySaltos[i].getPuntuacion() > peorPuntuacion
+
 					|| arraySaltos[i].isValido() && arraySaltos[i].getPuntuacion() < mayorPuntuacion) {
 				media += arraySaltos[i].getPuntuacion();
 				saltosValidos++;
@@ -68,11 +69,13 @@ public class Salto {
 			if (arraySaltos[i].isValido() && arraySaltos[i].getPuntuacion() == 1) {
 				valorMinimo = true;
 				peorPuntuacion = arraySaltos[i].getPuntuacion();
-			}
-			else if (arraySaltos[i].getPuntuacion() < peorPuntuacion)
+			} else if (arraySaltos[i].getPuntuacion() < peorPuntuacion)
 				peorPuntuacion = arraySaltos[i].getPuntuacion();
 		}
 
+		// no controlamos que devuelva diez pero en una tirada de 5, con 85 por ciento
+		// de validez es muy IMPROBABLE que se devuelva un valor 10
+		// todos tendrian que ser invalidos
 
 		return peorPuntuacion;
 	}
