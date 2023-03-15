@@ -1,0 +1,54 @@
+Se desea implementar un simulador de una competición de saltos de trampolín. Con el siguiente menú principal:
+
+**********************************************
+¿Qué desea realizar?
+1 - Dar de alta un Saltador
+2 - Simular competición
+3 - Ver estadísticas
+************************************************
+De un saltador nos interesa conocer: nombre, apellidos, nacionalidad (los datos posibles son ESP, GBR, USA, PRT), 
+total de puntos en la competición (double), y los datos de su entrenador.
+
+De cada entrenador queremos saber, su número de colegiado (un entero), y su nacionalidad (los datos posibles son ESP, GBR, USA, PRT).
+De
+
+Para cada saltador, queremos que se implemente el método equals, sabiendo que dos saltadores son iguales si tienen el mismo nombre, apellidos y nacionalidad.
+También queremos implementar el método que permita a un saltador, intercambiar su entrenador con el de otro saltador.
+
+
+ Es decir, un saltador acabaría con el entrenador del otro, y viceversa, una vez ejecutado el método.
+
+Cada saltador realizará 5 saltos en la competición. De cada salto se almacenará: la votación del jurado (número entero entre 0 y 10), y si es inválido o no.
+
+La puntuación de un saltador en la competición será igual a la media de los saltos que ha realizado válidos, quitando para el cálculo, el salto con peor puntuación, y mejor puntuación. La puntuación de un salto individual va a ser igual a la votación del jurado.
+
+Por ejemplo, supongamos que tenemos un saltador que ha realizado los siguientes saltos:
+
+SALTO 1: es válido, votación: 5
+SALTO 2: es válido, votación: 6, 
+SALTO 3: es válido, votación: 4, 
+SALTO 4: es válido, votación: 2, 
+SALTO 5:, es inválido, votación: 9
+
+Quitando el de menor puntuación (2)  y el de mayor puntuación (6), la media sería = (5+4)/2 = 4.5
+
+
+Cuando el usuario elija la opción 2, en el menú principal (Simular competición).
+Se simulará para cada saltador dado de alta en el sistema, las característica de sus saltos  votación y validez), de forma aleatoria, teniendo en cuenta que:
+
+La probabilidad de que un salto sea inválido o válido, no va a ser la misma.  Los saltos serán inválidos con un 15% de probabilidad,
+ mientras que serán válidos con un 85% de probabilidad.
+
+Respecto a la opción 3 (Ver estadísticas), una vez se seleccione este apartado, se mostrará la siguiente información del saltador con más puntos en la competición:
+
+Campeón de la competición: 
+-Nombre completo: Daniel Santos Roldan
+- Nº colegiado del entrenador: 453
+- Saltos realizados
+SALTO 1: es inválido, votación: 3 
+SALTO 2: es válido, votación: 2 
+SALTO 3: es válido, votación: 4 
+SALTO 4: es válido, votación: 9 
+SALTO 5: es inválido, votación: 9
+
+Puntuación total: 4
